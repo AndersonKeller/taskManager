@@ -22,7 +22,7 @@ body {
 .container {
   margin: 0 auto;
   max-width: 1328px;
-  
+  flex-wrap: wrap;
 }
 main {
     display: flex;
@@ -31,6 +31,11 @@ main {
     height: 100%;
     height: 100vh;
     padding: 0 24px;
+}
+@media (max-width: 692px){
+  main{
+    padding-top: 164px;
+  }
 }
 input[type=checkbox]:checked{
   appearance: none;
@@ -62,6 +67,20 @@ input[type="checkbox"]:checked::before {
   -ms-transform: translate(-50%, -50%) scale(1);
   -o-transform: translate(-50%, -50%) scale(1);
 }
+::-webkit-scrollbar {
+  border-radius: 8px;
+  background-color: #f7f9fd;
+  
+  width: 4px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+ background-color: #d7dde9;
+  cursor: pointer;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
