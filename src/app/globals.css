@@ -36,6 +36,20 @@ main {
   main{
     padding-top: 164px;
   }
+  
+}
+@media (max-width: 482px){
+  .modal{
+    height: 100vh;
+    width: 100%;
+    max-width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  .modal > div{
+    flex-wrap: wrap;
+  }
 }
 input[type=checkbox]:checked{
   appearance: none;
