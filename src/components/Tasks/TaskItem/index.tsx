@@ -1,7 +1,8 @@
 import TrashIcon from "@/assets/trash.svg";
-import { Modal } from "@/components/Modal";
+import { taskController } from "@/controllers/task.controller";
 import { iTask, taskStatus } from "@/schemas/task.schemas";
 import { modalStore } from "@/stores/modal.store";
+import { taskStore } from "@/stores/task.stores";
 import Image from "next/image";
 
 interface TaskItemProps {
@@ -11,8 +12,19 @@ interface TaskItemProps {
 
 export const TaskItem = ({ task, finished }: TaskItemProps) => {
   const { setOpenRemove } = modalStore();
+  const { setToremove, setList, taskList, statusChange, setStatusChange } =
+    taskStore();
+  const { updateStatus, updateList } = taskController;
+
   const removeTask = () => {
     setOpenRemove(true);
+    setToremove(task);
+  };
+  const update = () => {
+    updateStatus(task);
+    setList(taskList);
+    setStatusChange(!statusChange);
+    updateList(taskList);
   };
   return (
     <>
@@ -23,6 +35,7 @@ export const TaskItem = ({ task, finished }: TaskItemProps) => {
             type="checkbox"
             checked={finished}
             readOnly={finished}
+            onInput={update}
           />
           <p
             className={task.status === taskStatus.finish ? "line-through" : ""}

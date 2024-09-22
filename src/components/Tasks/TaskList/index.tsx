@@ -12,13 +12,12 @@ export const TaskList = () => {
   const [pendings, setPendings] = useState([] as iTask[]);
   const [finished, setFinished] = useState([] as iTask[]);
   const { init } = taskController;
-  const { taskList } = taskStore();
+  const { taskList, statusChange } = taskStore();
   useEffect(() => {
     init();
-    console.log(taskList, "taskList");
     setFinished(taskList.filter((task) => task.status === taskStatus.finish));
     setPendings(taskList.filter((task) => task.status === taskStatus.pending));
-  }, []);
+  }, [taskList, statusChange]);
   return (
     <>
       <ul className="flex flex-col gap-6 items-center">

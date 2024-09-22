@@ -8,7 +8,6 @@ export default function Home() {
   const { openModalCreate, setOpenCreate } = modalStore();
 
   const newTask = () => {
-    console.log("newtask");
     setOpenCreate(true);
   };
   return (
