@@ -1,6 +1,5 @@
 import { taskList } from "@/data/taskList";
 import { iTask, taskStatus } from "@/schemas/task.schemas";
-import { taskStore } from "@/stores/task.stores";
 
 import { parseCookies, setCookie } from "nookies";
 
